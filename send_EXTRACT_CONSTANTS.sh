@@ -36,10 +36,10 @@ OUT_BASE="/sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial"
 #3) SNCalib (extracts calibration constants from root and saves in csv)
 ##############################################################################
 
-#/sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/build/SNCalib/sncalib \
+#/sps/nemo/scratch/ykozina/Falaise/tutorial/.../build/SNCalib/sncalib \
 #	-i extracted_data-1556.root \
-#	-o /sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial/output-1556.csv \
-#	-p /sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/build/SNCalib/params.conf -s -V
+#	-o /.../output-1556.csv \
+#	-p /.../build/SNCalib/params.conf -s -V
 
 
 #end
