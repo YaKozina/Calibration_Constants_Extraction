@@ -20,7 +20,7 @@ OUT_BASE="/sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial"
 ##############################################################################
 /sps/nemo/scratch/chauveau/software/falaise/develop/install/bin/flreconstruct \
     -i /.../CD_1556.brio \ #full path to the file
-    -p /sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial/reco.conf \
+    -p /.../reco.conf \ #full path to the file
     -o /.../reco-PTD_1556-100.brio #full path to the file
     
 ##############################################################################    
@@ -29,8 +29,8 @@ OUT_BASE="/sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial"
 ##############################################################################
 
 #/sps/nemo/scratch/chauveau/software/falaise/develop/install/bin/flreconstruct \
-#	-i reco-PTD_1556-100.brio \ 
-#	-p /sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial/calibration_cuts.conf
+#	-i /.../reco-PTD_1556-100.brio \ 
+#	-p /.../calibration_cuts.conf
 
 ##############################################################################
 #3) SNCalib (extracts calibration constants from root and saves in csv)
