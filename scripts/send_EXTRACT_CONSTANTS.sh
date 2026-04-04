@@ -20,7 +20,7 @@ OUT_BASE="/sps/nemo/scratch/ykozina/Falaise/tutorial/CalibrationScript/Tutorial"
 ##############################################################################
 /sps/nemo/scratch/chauveau/software/falaise/develop/install/bin/flreconstruct \
     -i /.../CD_1556.brio \ #full path to the file
-    -p /.../reco.conf \ #full path to the file
+    -p /sps/nemo/scratch/ykozina/Falaise/calibration/Calibration_Constants_Extraction/reco.conf \ #full path to the file
     -o /.../reco-PTD_1556-100.brio #full path to the file
     
 ##############################################################################    
