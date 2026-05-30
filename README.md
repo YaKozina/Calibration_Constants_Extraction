@@ -617,7 +617,11 @@ calib_constants.csv
   -> spectrum-level and geometry-level analysis
 ```
 
-See:
+## Related repositories
 
-- <https://github.com/YaKozina/Energy_Calibration>
-- <https://github.com/YaKozina/Calibration_testing>
+| Repository | Role |
+|------------|------|
+| https://github.com/konarfil/CalibrationTools | original calibration software by F. Koňařík |
+| https://github.com/YaKozina/Calibration_Constants_Extraction | first stage: extraction of calibration constants |
+| https://github.com/YaKozina/Energy_Calibration | second stage: application of calibration constants |
+| https://github.com/YaKozina/Calibration_testing | full real/simulation pipeline and spectrum-level analysis |
