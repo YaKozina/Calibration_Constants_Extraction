@@ -2,7 +2,11 @@
 
 Software and helper scripts for extracting SuperNEMO calorimeter calibration constants from Bi-207 calibration data.
 
-This repository contains the minimal calibration-constant extraction chain used before applying calibrated energies with `Charge2EnergyModule`. It converts reconstructed calibration events into ROOT trees grouped by optical module (OM), fits the Bi-207 conversion-electron peaks, and produces a CSV file with the linear calibration parameters `a` and `b` for each OM.
+This repository contains the **first stage of the calibration workflow** used in the thesis: the extraction of the linear calibration constants `a` and `b` for each optical module (OM). The produced CSV file is then used in the next stage by `Charge2EnergyModule` to convert measured PMT charge into calibrated electron energy.
+
+Technically, this repository is a compact, separated adaptation of the calibration-constant extraction part of the original `CalibrationTools` package. It was kept as an independent repository to make this stage easier to build, run, test, and repeat separately from the full calibration software chain.
+
+The extraction chain converts reconstructed calibration events into ROOT trees grouped by OM, fits the Bi-207 conversion-electron peaks, and produces a CSV file with the calibration parameters for each OM.
 
 The repository is intended to be used inside the SuperNEMO/Falaise software environment, in particular on CC-IN2P3.
 
@@ -14,9 +18,11 @@ This repository is based on the original **CalibrationTools** package developed 
 
 - <https://github.com/konarfil/CalibrationTools>
 
-The version stored here is a modified and adapted copy used for the calibration-constant extraction workflow of the present thesis. The original calibration method and the core software concept belong to F. Koňařík. The modifications in this repository were introduced to make the software usable in the local processing chain used in this work, including mode-specific builds, configuration changes, CC-IN2P3 batch scripts, and integration with the surrounding calibration-data processing workflow.
+The original package provides the complete calibration software framework. The version stored here is a modified and adapted copy focused specifically on the **calibration-constant extraction stage**. It was separated from the full package for practical use in the thesis workflow, where the extraction of constants had to be run repeatedly for different correction modes and datasets before applying the constants in the following energy-calibration step.
 
-In other words, this repository should be understood as a thesis-specific adaptation of `CalibrationTools`, not as an independent reimplementation of the original calibration package.
+The original calibration method and the core software concept belong to F. Koňařík. The modifications in this repository were introduced to make the extraction stage convenient to use in the local processing chain, including mode-specific builds, configuration changes, CC-IN2P3 batch scripts, and integration with the surrounding calibration-data processing workflow.
+
+In other words, this repository should be understood as a thesis-specific adaptation of the constant-extraction part of `CalibrationTools`, not as an independent reimplementation of the original calibration package.
 
 
 ## Purpose
@@ -29,12 +35,14 @@ E = a * Q + b
 
 where `a` and `b` are OM-dependent calibration constants.
 
-This repository provides:
+This repository provides a separated implementation of the constant-extraction step:
 
 - a Falaise module, `CalibrationCutsModule`, that selects Bi-207 calibration tracks and stores the information required for calibration;
 - an energy-correction calculator used during the calibration fit;
 - the `SNCalib` executable, which extracts calibration constants from the ROOT file produced by `CalibrationCutsModule`;
 - scripts for running the extraction on many reconstructed `.brio` files and merging the resulting ROOT files.
+
+It does **not** represent the full calibration chain by itself. Its output is the calibration-constant CSV file, which is then passed to the energy-calibration stage.
 
 The output CSV file is later used by the energy-calibration repository:
 
